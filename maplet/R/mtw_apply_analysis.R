@@ -10,9 +10,9 @@
 #' @param stat_feat_filter Filter formula for metabolites, used as "stat_filter" in \code{mt_logging_statsinfo()} and "feat_filter" in \code{mt_plots_volcano()}, should be quoted by \code{quote()}
 #' @param lm_options A list of parameters for \code{mt_stats_univ_lm()}, expressions should be quoted by \code{quote()}
 #' @param cor_options A list of parameters for \code{mt_stats_univ_cor()}, expressions should be quoted by \code{quote()}
-#' @param multtest_options A list of parameters for \code{mt_post_mulTest()}, expressions should be quoted by \code{quote()}
+#' @param multtest_options A list of parameters for \code{mt_post_multtest()}, expressions should be quoted by \code{quote()}
 #' @param volcano_options A list of parameters for \code{mt_plots_volcano()}, expressions and variable names should be quoted by \code{quote()}
-#' @param box_scatter_options A list of parameters for \code{mt_plots_boxplot_scatter()}, expressions and variable names should be quoted by \code{quote()}
+#' @param box_scatter_options A list of parameters for \code{mt_plots_box_scatter()}, expressions and variable names should be quoted by \code{quote()}
 #' 
 #'
 #' @return D with analysis results and plots of multiple phenotypes

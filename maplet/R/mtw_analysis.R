@@ -1,6 +1,6 @@
 #' mtw_analysis
 #'
-#' Creates an analysis result based on the type of analysis function chose by users, with plots for visulization
+#' Creates an analysis result based on the type of analysis function chose by users, with plots for visualization
 #' 
 #'
 #' @param D \code{SummarizedExperiment} input
@@ -12,7 +12,7 @@
 #' @param multtest_options A list of parameters for \code{mt_post_multtest()}, expressions should be quoted by \code{quote()}
 #' @param stat_feat_filter Filter formula for features, used as "stat_filter" in \code{mt_reporting_stats()} and "feat_filter" in \code{mt_plots_volcano()}, should be quoted by \code{quote()}. Default is \code{quote(p.adj < 0.05)}
 #' @param volcano_options A list of parameters for \code{mt_plots_volcano()}, expressions and variable names should be quoted by \code{quote()}
-#' @param box_scatter_options A list of parameters for \code{mt_plots_boxplot_scatter()}, expressions and variable names should be quoted by \code{quote()}
+#' @param box_scatter_options A list of parameters for \code{mt_plots_box_scatter()}, expressions and variable names should be quoted by \code{quote()}
 #' 
 #'
 #' @return D with analysis results

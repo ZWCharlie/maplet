@@ -1,13 +1,13 @@
 #' Wrapper function to filter missingness
 #'
-#' Filtering missingness of both metabolites and samples, and generating 3 missingness plots: before filtering, after filter metabolites, and after filter samples
+#' Filtering missingness of both features and samples, and generating 3 missingness plots: before filtering, after filter features, and after filter samples
 #'
 #' @param D \code{SummarizedExperiment} input
 #' @param plot_options A list of parameters for \code{mt_plots_qc_missingness}
-#' @param filter_options A list of oparameters for \code{mt_pre_filtermiss}, default thresholds for metabolites and samples are 0.2 and 0.1
+#' @param filter_options A list of parameters for \code{mt_pre_filtermiss}, default thresholds for features and samples are 0.2 and 0.1
 #'
 #' @return D with filtered data
-#'  column "Met_Missing" will be added to rowData with missing information on metabolites
+#'  column "Feat_Missing" will be added to rowData with missing information on features
 #'  column "Sample_Missing" will be added to colData with missing information on samples
 #' 
 #' @examples
@@ -69,14 +69,14 @@ mtw_missingness <- function (D,
   plot_options$D <- D
   D <- do.call("mt_plots_missingness", plot_options)
   
-  # filtering metabolites
+  # filtering features
   filter_options <- map_lists(filter_options_def, filter_options)
   samp_max <- filter_options$samp_max
   filter_options$samp_max <- NULL
   filter_options$D <- D
   D <- do.call("mt_pre_filter_missingness", filter_options)
   
-  # plot missingness after filtering metabolites
+  # plot missingness after filtering features
   plot_options$D <- D
   D <- do.call("mt_plots_missingness", plot_options)
   

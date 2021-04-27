@@ -10,7 +10,7 @@
 #' @param boxplot_options A list of parameters for \code{mt_plots_sample_boxplot}
 #' @param quot_options A list of parameters for \code{mt_pre_norm_quot}
 #' @param dilut_fac_cols List of names in colData column to correlate dilution factors with
-#' @param dilution_options A list of parameters for \code{mt_plots_qc_dilutionplot}
+#' @param dilution_options A list of parameters for \code{mt_plots_dilution_factor}
 #' @param log_base Base for log function, default is 2
 #' @param do_impute Logical. Whether to run imputation, default is TRUE
 #' @param knn_options A list of parameters for \code{mt_pre_impute_knn}
@@ -66,10 +66,10 @@ mtw_preprocess <-
       # Batch normalization based on ref_sample
       if(!is.null(batch_ref_samples)){
         D %<>%
-          batch_fun(batches = batch_col, ref_samples = dplyr::enquo(batch_ref_samples))
+          batch_fun(batch_col = batch_col, ref_samples = dplyr::enquo(batch_ref_samples))
       } else{
         D %<>%
-          batch_fun(batches = batch_col)
+          batch_fun(batch_col = batch_col)
       }
     }
     
@@ -107,6 +107,7 @@ mtw_preprocess <-
       }
       run_batch = T
     }
+    
     
     # Batch at the beginning
     if (run_batch == T && batch_loc == 'begin') {
